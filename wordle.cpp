@@ -8,5 +8,11 @@
 #include <iostream>
 using namespace std;
 int main(){
-    
+    string str = "LAUGH"; 
+		// note: the first character in a string is
+		// 	located at index position 0 (not 1) 
+		for(int index=0; index<str.length(); index++){
+			cout << str.at(index) << ":" << endl; 
+        }
+    return 0;
 }
