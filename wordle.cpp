@@ -6,6 +6,7 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 using namespace std;
 int main(){
 	cout << "Welcome to Wordle For Friends!" << endl << "≤^.^≥"<< endl << endl;
@@ -55,7 +56,7 @@ int main(){
 			cout << "Seriously, " << playerOneName << "? Your input word is " << keyWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 		}
-		else if (isalpha(keyWord) == false){ // no instance of overloaded function? confused
+		else if (any_of(keyWord.begin(), keyWord.end(), ::isalpha) == false){ // no instance of overloaded function? confused
 			cout << "Don't make me arrest you, " << playerOneName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 		}
@@ -79,7 +80,7 @@ int main(){
 				cout << "Seriously, " << playerTwoName << "? Your input word is " << guessWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 			}
-			else if (isalpha(guessWord) == false){ // no instance of overloaded function? confused
+			else if (any_of(keyWord.begin(), keyWord.end(), ::isalpha) == false){ // no instance of overloaded function? confused
 				cout << "Don't make me arrest you, " << playerTwoName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 			}
