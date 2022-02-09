@@ -48,8 +48,8 @@ int main(){
 	cout << "Wait... " << playerOneName << ", I need the key word from you (yes, you may whisper into my ears... and remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 
 	string keyWord;
-
-	while (true){
+	
+	while (keyWord.length() < 5 or keyWord.length() > 5 or any_of(keyWord.begin(), keyWord.end(), ::isdigit)){
 		cin >> keyWord;
 		cout << endl;
 		if (keyWord.length() < 5 or keyWord.length() > 5){
@@ -62,7 +62,6 @@ int main(){
 		}
 		else{
 			cout << "Got it, " << playerOneName << "! The key word is now securely processed and saved." << endl << endl;
-			break;
 		}
 
 	}
@@ -73,7 +72,7 @@ int main(){
 	while (attempts <= 6){ // This is the 6 attempts of the game
 		cout << "This is your attempt #" << attempts << ", " << playerTwoName << ", please enter a valid five-letter word (all UPPERCASE): ";
 		string guessWord;
-		while (true){
+		while (guessWord.length() < 5 or guessWord.length() > 5 or any_of(guessWord.begin(), guessWord.end(), ::isdigit)){
 			cin >> guessWord;
 			cout << endl;
 			if (guessWord.length() < 5 or guessWord.length() > 5){
@@ -91,7 +90,6 @@ int main(){
 				// also will need to while loop the whole game until final user value == "N"
 				// this is going somewhere
 				attempts += 1;
-				break;
 			}
 		}
 	}
