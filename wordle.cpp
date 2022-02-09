@@ -24,12 +24,76 @@ int main(){
 
 	cout << endl << "Welcome, " << playerTwoName << "!" << endl;
 
+	while (true){
+		cout << endl << playerOneName << ", please rate the friendship level you have with " << playerTwoName << "." << endl;
+		cout << "(enter an integer value in [0, 100]): ";
 
+		int friendshipValue;
 
+		cin >> friendshipValue;
+		cout << endl;
 
+		if (friendshipValue == (int)friendshipValue and friendshipValue >= 0 and friendshipValue <= 100){ // figure out how to check if friendshipValue is an integer
+			cout << "Hooray, that's an admirable friendship between you two!" << endl << endl;
+			break;
+		}
+		else {
+			cout << "Can't you read, " << playerOneName << "? The friendship level you input is invalid!" << endl;
+		}
+	}
 
+	cout << "Let the game begin!" << endl << endl;
 
+	cout << "Wait... " << playerOneName << ", I need the key word from you (yes, you may whisper into my ears... and remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 
+	string keyWord;
+
+	while (true){
+		cin >> keyWord;
+		cout << endl << endl;
+		if (keyWord.length() < 5){
+			cout << "Seriously, " << playerOneName << "? Your input word is " << keyWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
+			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
+		}
+		else if (isalpha(keyWord) == false){ // no instance of overloaded function? confused
+			cout << "Don't make me arrest you, " << playerOneName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
+			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
+		}
+		else{
+			cout << "Got it, " << playerOneName << "! The key word is now securely processed and saved." << endl << endl;
+			break;
+		}
+
+	}
+
+	cout << "Get ready, " << playerTwoName << "! It's now time to Wordle with " << playerOneName << "!" << endl << "You will have a total of 6 attemts to guess the word correctly." << endl << endl;
+
+	int attempts = 1;
+	while (attempts <= 6){ // This is the 6 attempts of the game
+		cout << "This is your attempt #" << attempts << ", " << playerTwoName << ", please enter a valid five-letter word (all UPPERCASE): ";
+		string guessWord;
+		while (true){
+			cin >> guessWord;
+			cout << endl << endl;
+			if (guessWord.length() < 5){
+				cout << "Seriously, " << playerTwoName << "? Your input word is " << guessWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
+				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
+			}
+			else if (isalpha(guessWord) == false){ // no instance of overloaded function? confused
+				cout << "Don't make me arrest you, " << playerTwoName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
+				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
+			}
+			else{
+				cout << "Got it, " << playerTwoName << "! The key word is now securely processed and saved." << endl << endl;
+				// add the game's input of the guess and output of the word with its placements here
+				// also don't forget the friendship level stuff
+				// also will need to while loop the whole game until final user value == "N"
+				// this is going somewhere
+				attempts += 1;
+				break;
+			}
+		}
+	}
 
     string str = "LAUGH"; 
 		// note: the first character in a string is
