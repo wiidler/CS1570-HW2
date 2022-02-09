@@ -24,19 +24,19 @@ int main(){
 	cin >> playerTwoName;
 
 	cout << endl << "Welcome, " << playerTwoName << "!" << endl;
-
-	while (true){
+	int friendshipValue;
+	int friendshipValueSuccess;
+	while (friendshipValueSuccess != 1){ //Figure out a better way to incorporate logic into while loop statement
 		cout << endl << playerOneName << ", please rate the friendship level you have with " << playerTwoName << "." << endl;
 		cout << "(enter an integer value in [0, 100]): ";
 
-		int friendshipValue;
-
+	
 		cin >> friendshipValue;
 		cout << endl;
 
 		if (friendshipValue == (int)friendshipValue and friendshipValue >= 0 and friendshipValue <= 100){ // figure out how to check if friendshipValue is an integer
 			cout << "Hooray, that's an admirable friendship between you two!" << endl << endl;
-			break;
+			friendshipValueSuccess += 1;
 		}
 		else {
 			cout << "Can't you read, " << playerOneName << "? The friendship level you input is invalid!" << endl;
@@ -48,7 +48,7 @@ int main(){
 	cout << "Wait... " << playerOneName << ", I need the key word from you (yes, you may whisper into my ears... and remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 
 	string keyWord;
-	
+
 	while (keyWord.length() < 5 or keyWord.length() > 5 or any_of(keyWord.begin(), keyWord.end(), ::isdigit)){
 		cin >> keyWord;
 		cout << endl;
