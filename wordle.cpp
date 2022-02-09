@@ -51,12 +51,12 @@ int main(){
 
 	while (true){
 		cin >> keyWord;
-		cout << endl << endl;
-		if (keyWord.length() < 5){
+		cout << endl;
+		if (keyWord.length() < 5 or keyWord.length() > 5){
 			cout << "Seriously, " << playerOneName << "? Your input word is " << keyWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 		}
-		else if (any_of(keyWord.begin(), keyWord.end(), ::isalpha) == false){ // no instance of overloaded function? confused
+		else if (any_of(keyWord.begin(), keyWord.end(), ::isdigit)){
 			cout << "Don't make me arrest you, " << playerOneName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 			cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 		}
@@ -75,17 +75,17 @@ int main(){
 		string guessWord;
 		while (true){
 			cin >> guessWord;
-			cout << endl << endl;
-			if (guessWord.length() < 5){
+			cout << endl;
+			if (guessWord.length() < 5 or guessWord.length() > 5){
 				cout << "Seriously, " << playerTwoName << "? Your input word is " << guessWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 			}
-			else if (any_of(keyWord.begin(), keyWord.end(), ::isalpha) == false){ // no instance of overloaded function? confused
+			else if (any_of(guessWord.begin(), guessWord.end(), ::isdigit)){
 				cout << "Don't make me arrest you, " << playerTwoName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 				cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 			}
 			else{
-				cout << "Got it, " << playerTwoName << "! The key word is now securely processed and saved." << endl << endl;
+				cout << "You entered \"" << guessWord << "\". Nice try, keep going!" << endl;
 				// add the game's input of the guess and output of the word with its placements here
 				// also don't forget the friendship level stuff
 				// also will need to while loop the whole game until final user value == "N"
