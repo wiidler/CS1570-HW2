@@ -168,7 +168,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 				else if ( newGame == "Y"){ // Restarts game with new player
 					cout << "Awesome! Let get this started!" << endl << endl;
 					attempts = 1; // Resets attempts
-					roundNumber = 1 // Resets round number
+					roundNumber = 1; // Resets round number
 				}
 			}
 			else{
