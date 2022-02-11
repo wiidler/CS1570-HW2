@@ -112,7 +112,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 						}
 						else{
 							cout << "You entered \"" << guessWord << "\". Nice try, keep going!" << endl;
-							for(int index=0; index<guessWord.length(); index++)
+							for(int index=0; index < (int) guessWord.length(); index++)
 							{
 								cout << guessWord.at(index) << ":";
 								if (guessWord.at(index) == keyWord.at(index)){
