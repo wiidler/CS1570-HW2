@@ -33,7 +33,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 		cout << endl << "Welcome, " << playerTwoName << "!" << endl;
 		int friendshipValue = -1;
 
-		while ((friendshipValue >= 0 and friendshipValue <= 100) == false){
+		while ((friendshipValue >= 0 && friendshipValue <= 100) == false){
 			cout << endl << playerOneName << ", please rate the friendship level you have with " << playerTwoName << "." << endl;
 			cout << "(enter an integer value in [0, 100]): ";
 
@@ -51,7 +51,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 			
 			cout << endl;
 
-			if (friendshipValue >= 0 and friendshipValue <= 100){
+			if (friendshipValue >= 0 && friendshipValue <= 100){
 				cout << "Hooray, that's an admirable friendship between you two!" << endl << endl;
 			}
 			else{
@@ -67,14 +67,14 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 
 			string keyWord = "";
 
-			while (keyWord.length() != 5 || any_of(keyWord.begin(), keyWord.end(), ::isdigit)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
+			while (keyWord.length() != 5 || !all_of(keyWord.begin(), keyWord.end(), ::isalpha) || any_of(keyWord.begin(), keyWord.end(), ::isdigit)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
 				cin >> keyWord;
 				cout << endl;
-				if (keyWord.length() < 5 or keyWord.length() > 5){
+				if (keyWord.length() < 5 || keyWord.length() > 5){
 					cout << "Seriously, " << playerOneName << "? Your input word is " << keyWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 					cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 				}
-				else if (any_of(keyWord.begin(), keyWord.end(), ::isalpha) ==  false){
+				else if (!all_of(keyWord.begin(), keyWord.end(), ::isalpha) || any_of(keyWord.begin(), keyWord.end(), ::isdigit) ==  false){
 					cout << "Don't make me arrest you, " << playerOneName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 					cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 				}
@@ -88,17 +88,17 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 
 			int attempts = 1;
 			int victory = 0;
-			while (attempts <= 6 and (attempts <= 6 and victory != 1)){ // This is the 6 attempts of the game
+			while (attempts <= 6 && (attempts <= 6 && victory != 1)){ // This is the 6 attempts of the game
 				cout << "This is your attempt #" << attempts << ", " << playerTwoName << ", please enter a valid five-letter word (all UPPERCASE): ";
 				string guessWord;
-				while (guessWord.length() != 5 or any_of(guessWord.begin(), guessWord.end(), ::isdigit)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
+				while (guessWord.length() != 5 || any_of(guessWord.begin(), guessWord.end(), ::isdigit)|| !all_of(guessWord.begin(), guessWord.end(), ::isalpha)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
 					cin >> guessWord;
 					cout << endl;
 					if (guessWord.length() != 5){
 						cout << "Seriously, " << playerTwoName << "? Your input word is " << guessWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 						cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 					}
-					else if (any_of(guessWord.begin(), guessWord.end(), ::isdigit)){
+					else if (any_of(guessWord.begin(), guessWord.end(), ::isdigit) || !all_of(guessWord.begin(), guessWord.end(), ::isalpha)){
 						cout << "Don't make me arrest you, " << playerTwoName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 						cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 					}
