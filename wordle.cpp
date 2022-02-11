@@ -2,23 +2,14 @@
 // Date: 2/7/22
 // File: wordle.cpp
 // Assignment: HW2
-// Purpose: This file contains a popular clone of the game "Wordle".
+// Purpose: This file contains a clone of the popular game "Wordle".
 
 #include <string>
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
-bool isInWord(const char guess, const string goalWord, const int WORDLENGTH) // Function used to find out if each letter in a guess is in a word
-{
-    bool returnVal = false;
-    for(int i=0; i<WORDLENGTH; i++)
-    {
-        if(guess == goalWord[i])
-            returnVal = true;
-    }
-    return returnVal;
-}
+bool isInWord(const char guess, const string goalWord, const int WORDLENGTH); // Function used to find out if each letter in a guess is in a word
 
 int main(){
 	cout << "Welcome to Wordle For Friends!" << endl << "<=^.^=>"<< endl << endl;
@@ -42,31 +33,41 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 		cout << endl << "Welcome, " << playerTwoName << "!" << endl;
 		int friendshipValue = -1;
 
-		while (((friendshipValue == (int)friendshipValue) and friendshipValue >= 0 and friendshipValue <= 100) == false){ // (fix if a word is entered)
+		while ((friendshipValue >= 0 and friendshipValue <= 100) == false){
 			cout << endl << playerOneName << ", please rate the friendship level you have with " << playerTwoName << "." << endl;
 			cout << "(enter an integer value in [0, 100]): ";
 
 		
-			cin >> friendshipValue;
+			string userInput = "";
+			cin >> userInput;
+			if (any_of(userInput.begin(), userInput.end(), ::isalpha))
+			{
+				cout << "HEY!";
+			}
+			else
+			{
+				friendshipValue = stoi(userInput);
+			}
+			
 			cout << endl;
 
-			if ((friendshipValue == (int)friendshipValue) and friendshipValue >= 0 and friendshipValue <= 100){ // figure out how to check if friendshipValue is an integer
+			if (friendshipValue >= 0 and friendshipValue <= 100){
 				cout << "Hooray, that's an admirable friendship between you two!" << endl << endl;
 			}
 			else{
 				cout << "Can't you read, " << playerOneName << "? The friendship level you input is invalid!" << endl;
 			}
 		}
-		string playAgain;
+		string playAgain = "";
 		while (playAgain != "N") { // This is where the game loops if player one wants to play again with the same player two
 
 			cout << "Let the game begin!" << endl << endl;
 
 			cout << "Wait... " << playerOneName << ", I need the key word from you (yes, you may whisper into my ears... and remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 
-			string keyWord;
+			string keyWord = "";
 
-			while (keyWord.length() != 5 or any_of(keyWord.begin(), keyWord.end(), ::isdigit)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
+			while (keyWord.length() != 5 || any_of(keyWord.begin(), keyWord.end(), ::isdigit)){ // If the keyword is not 5 characters long or if there are characters other than letters in the word, this loops until it meets the criteria.
 				cin >> keyWord;
 				cout << endl;
 				if (keyWord.length() < 5 or keyWord.length() > 5){
@@ -179,4 +180,15 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 		}
 	}
 	return 0;
+}
+
+bool isInWord(const char guess, const string goalWord, const int WORDLENGTH) // Function used to find out if each letter in a guess is in a word
+{
+    bool returnVal = false;
+    for(int i=0; i<WORDLENGTH; i++)
+    {
+        if(guess == goalWord[i])
+            returnVal = true;
+    }
+    return returnVal;
 }
