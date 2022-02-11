@@ -31,6 +31,7 @@ int main(){
 	cout << endl << "Welcome, " << playerOneName << "!" << endl;
 
 string newGame;
+int roundNumber = 0;
 
 while (newGame != "N"){ // This is where the game loops if player one chooses to start a new game with a new player two
 		cout << endl << "Now, Player 2, please enter your name: ";
@@ -58,7 +59,6 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 		}
 		string playAgain;
 		while (playAgain != "N") { // This is where the game loops if player one wants to play again with the same player two
-			int roundNumber = 0;
 
 			cout << "Let the game begin!" << endl << endl;
 
@@ -168,7 +168,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 				else if ( newGame == "Y"){ // Restarts game with new player
 					cout << "Awesome! Let get this started!" << endl << endl;
 					attempts = 1; // Resets attempts
-					roundNumber = 1; // Resets round number
+					roundNumber = 0; // Resets round number
 				}
 			}
 			else{
