@@ -74,7 +74,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 					cout << "Seriously, " << playerOneName << "? Your input word is " << keyWord.length() << " letters long! Don't make me quit on you right now..." << endl << endl;
 					cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 				}
-				else if (!all_of(keyWord.begin(), keyWord.end(), ::isalpha) || any_of(keyWord.begin(), keyWord.end(), ::isdigit) ==  false){
+				else if (!all_of(keyWord.begin(), keyWord.end(), ::isalpha) || any_of(keyWord.begin(), keyWord.end(), ::isdigit)){
 					cout << "Don't make me arrest you, " << playerOneName << "! Your input word is contaminated with non-alphabet characters..." << endl << endl;
 					cout << "Please enter the key word again (remember, it has to be a valid five-letter word, all UPPERCASE!): ";
 				}
