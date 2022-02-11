@@ -41,7 +41,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 		cout << endl << "Welcome, " << playerTwoName << "!" << endl;
 		int friendshipValue = -1;
 
-		while (((friendshipValue, friendshipValue, ::isdigit) and friendshipValue >= 0 and friendshipValue <= 100) == false){ // Figure out a better way to incorporate logic into while loop statement (fix if a word is entered)
+		while (((friendshipValue == (int)friendshipValue) and friendshipValue >= 0 and friendshipValue <= 100) == false){ // Figure out a better way to incorporate logic into while loop statement (fix if a word is entered)
 			cout << endl << playerOneName << ", please rate the friendship level you have with " << playerTwoName << "." << endl;
 			cout << "(enter an integer value in [0, 100]): ";
 
@@ -49,7 +49,7 @@ while (newGame != "N"){ // This is where the game loops if player one chooses to
 			cin >> friendshipValue;
 			cout << endl;
 
-			if ((friendshipValue, friendshipValue, ::isdigit) and friendshipValue >= 0 and friendshipValue <= 100){ // figure out how to check if friendshipValue is an integer
+			if ((friendshipValue == (int)friendshipValue) and friendshipValue >= 0 and friendshipValue <= 100){ // figure out how to check if friendshipValue is an integer
 				cout << "Hooray, that's an admirable friendship between you two!" << endl << endl;
 			}
 			else{
